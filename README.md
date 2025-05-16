@@ -33,7 +33,6 @@ Dataset Dataset used in this project was provided by Vesta Corporation in 2019 f
 - numpy
 - scikit-learn
 - imbalanced-learn (SMOTE)
-- xgboost
 - matplotlib
 - seaborn
 - statsmodels
@@ -48,7 +47,7 @@ Dataset Dataset used in this project was provided by Vesta Corporation in 2019 f
 2. **Exploratory Data Analysis (EDA)**: Initial data profiling and visualization.
 3. **Data Preprocessing**: Handle missing values, encode categorical features.
 4. **Feature Engineering**: Create new features and select relevant ones.
-5. **Model Training**: Train Logistic Regression, Random Forest, and XGBoost classifiers.
+5. **Model Training**: Train Logistic Regression, Random Forest, and Decision Tree.
 6. **Evaluation**: Assess performance with accuracy, precision, recall, F1-score, and ROC-AUC.
 
 ## Project Structure
@@ -70,6 +69,6 @@ Detailed explanation of data preprocessing steps, feature selection strategies, 
 Performance of each model (cross-validated) is summarized with metrics and visualizations in the notebook.
 
 ## Results
-- **Best Model**: XGBoost achieved the highest ROC-AUC score of _X.XX_
+- **Best Model**: Random Forest achieved the highest accuracy of around 98%
 - **Comparison**: Random Forest and Logistic Regression results are also provided for benchmarking.
 
