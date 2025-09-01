@@ -4,31 +4,71 @@ Project Description: In present times, increased number of transaction frauds ha
 
 __Data Description__
 
-Dataset Dataset used in this project was provided by Vesta Corporation in 2019 for a compeition on Kaggle.com. It contains real-time transaction details such as user details (device type, OS system), location, transaction amount, and other above 300 features for each transaction. The whole data set is broken into two files: identity and transaction files. These files are mergered using Transaction ID.
+Dataset Dataset used in this project was provided by Vesta Corporation in 2019 for a compeition on Kaggle.com. It contains real-time transaction details such as user details (device type, OS system), location, transaction amount, and other above 300 features for each transaction. 
 
 
+## Dataset
+- **Source**: Vesta Corporation
+- **Files**:
+  - `train_transaction.csv`: training transaction data
+  - `train_identity.csv`: training identity data
+  - `test_transaction.csv`: testing transaction data
+  - `test_identity.csv`: testing identity data
 
-TransactionDT: timedelta from a given reference datetime (not an actual timestamp)
+### Feature Overview
+- **TransactionDT**: Time delta from a reference datetime (not actual timestamp)
+- **TransactionAmt**: Dollar amount of transaction
+- **ProductCD, card1–card6**: Product and card details
+- **addr1, addr2**: User address information
+- **dist1, dist2**: Distance features
+- **P_emaildomain, R_emaildomain**: Email domain features
+- **C1–C14**: Count features
+- **D1–D15**: Time delta features
+- **M1–M9**: Match features (e.g., card and address)
+- **V1–V339**: Rich engineered features provided by Vesta
 
-TransactionAMT: Dollar Amount of transaction payments
+## Dependencies
+- Python 3.7+
+- pandas
+- numpy
+- scikit-learn
+- imbalanced-learn (SMOTE)
+- matplotlib
+- seaborn
+- statsmodels
+- prettytable
+- scipy
 
-ProductCD: Each transaction product Code
 
-card1 - card6: Card details: type, category, bank name, issuing country & other details.
+2. Open `ML_FraudDetection.ipynb` and run cells sequentially to reproduce the analysis.
 
-addr: User address
+### Workflow Steps
+1. **Data Loading & Merging**: Combine transaction and identity files by TransactionID.
+2. **Exploratory Data Analysis (EDA)**: Initial data profiling and visualization.
+3. **Data Preprocessing**: Handle missing values, encode categorical features.
+4. **Feature Engineering**: Create new features and select relevant ones.
+5. **Model Training**: Train Logistic Regression, Random Forest, and Decision Tree.
+6. **Evaluation**: Assess performance with accuracy, precision, recall, F1-score, and ROC-AUC.
 
-dist: distance (dist1 & dist2)
+## Project Structure
+```text
+├── data/
+│   ├── train_transaction.csv
+│   ├── train_identity.csv
+│   ├── test_transaction.csv
+│   └── test_identity.csv
+├── ML_FraudDetection.ipynb
+├── requirements.txt
+└── README.md
+```
 
-P_emaildomain: purchaser email domain
+## Methodology
+Detailed explanation of data preprocessing steps, feature selection strategies, and modeling choices can be found in the notebook.
 
-R_emaildomain: receiptionist email domain
+## Model Evaluation
+Performance of each model (cross-validated) is summarized with metrics and visualizations in the notebook.
 
-C1-C14: counting n of addresses
-
-D1-D15: timedelta considering previous transaction.
-
-M1-M9: Information match (card address and name)
-
-V1-V339: Vesta engineered rich features, including ranking, counting, and other entity relations.
+## Results
+- **Best Model**: Random Forest achieved the highest accuracy of around 98%
+- **Comparison**: Random Forest and Logistic Regression results are also provided for benchmarking.
 
